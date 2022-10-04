@@ -1,14 +1,11 @@
 #!/usr/bin/node
-const dictInput = require('./101-data').dict;
-const outDict = {};
 
-for (const key in dictInput) {
-  const ocurr = dictInput[key];
-  outDict[ocurr] = [];
-  for (const keys in dictInput) {
-    if (dictInput[keys] === ocurr) {
-      outDict[ocurr].push(keys);
-    }
-  }
+const dict = require('./101-data').dict;
+const output = {};
+
+for (const entry in dict) {
+  if (!output[dict[entry]]) output[dict[entry]] = [];
+  output[dict[entry]].push(entry);
 }
-console.log(outDict);
+
+console.log(output);
